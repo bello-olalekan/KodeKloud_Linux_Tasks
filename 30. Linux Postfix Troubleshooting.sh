@@ -33,13 +33,15 @@ Jun 06 14:45:22 stmail01.stratos.xfusioncorp.com systemd[1]: postfix.service: cg
 #Step 4-Edit the configuration file
 	cat /etc/postfix/main.cf |grep inet_interface
 	vi /etc/postfix/main.cf
+	#Comment out the inet_interface = localhost
+	i.e #inet_interface = localhost
 	cat /etc/postfix/main.cf |grep inet_interface
 
-#Step 6-  Post configuration saved start the services and check the status 
+#Step 5-  Post configuration saved start the services and check the status 
 	systemctl start postfix
 	systemctl status postfix 
 
-#Step 7- validate the task by telnet the port 25
+#Step 6- validate the task by telnet the port 25
 	telnet stmail01 25 
 
 Reference: https://www.nbtechsupport.co.in/2021/06/linux-postfix-troubleshooting.html
